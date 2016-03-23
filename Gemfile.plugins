@@ -36,4 +36,6 @@ group :opf_plugins do
   gem "openproject-local_avatars", path: "vendored-plugins/openproject-local_avatars"
   gem "openproject-webhooks", path: "vendored-plugins/openproject-webhooks"
   gem "openproject-github_integration", path: "vendored-plugins/openproject-github_integration"
+
+  gem "openproject-export_pdf_time_entries", :path => '../plugins_openproject/openproject-export_pdf_time_entries'
 end

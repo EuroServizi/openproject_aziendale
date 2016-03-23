@@ -161,6 +161,11 @@ class Widget::Table::EntryTable < Widget::Table
                          method: :delete,
                          class: 'no-decoration-on-hover',
                          title: l(:button_delete))
+        #MODIFICA: AGGIUNTA ICONA PER ESPORTARE PDF DELLA BOLLA
+        icons << link_to(icon_wrapper('icon-context icon-export', "Esporta"),
+                         stampa_bolla_project_time_entry_path(:id => result.fields['id'], :project_id =>  result.fields['project_id'], :format => 'pdf', :template => 'bolletta_euro_servizi'),
+                         class: 'no-decoration-on-hover',
+                         title: "Esporta")
       end
     end
     icons

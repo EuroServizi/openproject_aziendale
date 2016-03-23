@@ -266,7 +266,19 @@ OpenProject::Application.routes.draw do
     namespace :time_entries do
       resource :report, controller: 'reports', only: [:show]
     end
+
+    resources :projects do
+      resources :time_entries, only: [:show], controller: 'print_report_time' do
+        #per l'export del tempo speso
+        get 'stampa_bolla', on: :member, as: 'stampa_bolla'
+        get 'mostra_bolla', on: :member, as: 'mostra_bolla'
+      end
+
+    end
+
     resources :time_entries, controller: 'timelog'
+
+
 
     resources :wiki, except: [:index, :new, :create] do
       collection do
@@ -436,7 +448,7 @@ OpenProject::Application.routes.draw do
     namespace :time_entries do
       resource :report, controller: 'reports'
     end
-    resources :time_entries, controller: 'timelog'
+    resources :time_entries, controller: 'timelog' 
 
     # states managed by client-side routing on work_package#index
     get 'details/*state' => 'work_packages#index', on: :collection, as: :details
@@ -460,7 +472,7 @@ OpenProject::Application.routes.draw do
                       only: [:show]
   end
 
-  resources :time_entries, controller: 'timelog'
+  resources :time_entries, controller: 'timelog' 
 
   resources :activity, :activities, only: :index, controller: 'activities'
 

@@ -62,5 +62,7 @@ See doc/COPYRIGHT.rdoc for more details.
              locals: { form: f, all_fields: true, only_required: false } %>
 
   <%= call_hook(:view_timelog_edit_form_bottom, { time_entry: @time_entry, form: f }) %>
+  <button id="button_calcola_ore" class="button -highlight -with-icon" type="button">Calcola Ore</button>
   <%= f.button l(:button_save), class: 'button -highlight -with-icon icon-checkmark' %>
+  
 <% end %>

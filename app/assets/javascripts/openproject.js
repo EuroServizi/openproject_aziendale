@@ -451,3 +451,49 @@ window.OpenProject = (function ($) {
 
   return OP;
 })(jQuery);
+
+
+/* aggiunta per calcolo ore */
+/* differenza tra due date con pausa */
+function diff(start, end, pausa) {
+    start = start.split(":");
+    end = end.split(":");
+
+    var startDate = new Date(0, 0, 0, start[0], start[1], 0);
+
+    if(pausa != ''){
+      pausa = pausa.split(":");
+      startDate.setHours(startDate.getHours()+parseInt(pausa[0])); 
+      startDate.setMinutes(startDate.getMinutes()+parseInt(pausa[1])); 
+    }
+        
+    var endDate = new Date(0, 0, 0, end[0], end[1], 0);
+    var diff = ( endDate.getTime() - startDate.getTime() );
+    var hours = Math.floor(diff / 1000 / 60 / 60);
+    diff -= hours * 1000 * 60 * 60;
+    var minutes = Math.floor(diff / 1000 / 60);
+
+    // If using time pickers with 24 hours format, add the below line get exact hours
+    if (hours < 0)
+       hours = hours + 24;
+
+    return (hours <= 9 ? "0" : "") + hours + ":" + (minutes <= 9 ? "0" : "") + minutes;
+}
+
+
+jQuery(document).ready(function(){
+  /* al click prendo i valori e calcolo le ore */
+  jQuery("#button_calcola_ore").click(function(){
+    var ora_inizio = jQuery("#time_entry_custom_field_values_9").val();
+    var ora_fine = jQuery("#time_entry_custom_field_values_10").val();
+    var pausa = jQuery("#time_entry_custom_field_values_11").val();
+
+    if(ora_inizio != "" && ora_fine != ""){
+      diff_ora = diff(ora_inizio, ora_fine, pausa);
+      jQuery("#time_entry_hours").val(diff_ora);
+    }
+
+  });
+
+
+});
