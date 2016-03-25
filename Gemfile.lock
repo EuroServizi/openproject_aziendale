@@ -96,6 +96,14 @@ GIT
       rspec-mocks (>= 2.99, < 4.0)
 
 PATH
+  remote: ../plugins_openproject/openproject-export_pdf_time_entries
+  specs:
+    openproject-export_pdf_time_entries (0.0.1)
+      pdfkit
+      rails (~> 4.2.5)
+      wkhtmltopdf-binary
+
+PATH
   remote: vendored-plugins/openproject-announcements
   specs:
     openproject-announcements (5.0.14)
@@ -322,6 +330,13 @@ GEM
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
+    coffee-rails (4.1.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.1.x)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.10.0)
     color-tools (1.3.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
@@ -508,6 +523,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
+    pdfkit (0.8.2)
     pg (0.18.3)
     poltergeist (1.7.0)
       capybara (~> 2.1)
@@ -717,6 +733,9 @@ GEM
     tzinfo-data (1.2015.6)
       tzinfo (>= 1.0.0)
     uber (0.0.13)
+    uglifier (2.7.2)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
@@ -753,6 +772,7 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     will_paginate (3.0.7)
+    wkhtmltopdf-binary (0.9.9.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
     yard (0.8.7.6)
@@ -780,6 +800,7 @@ DEPENDENCIES
   cocaine
   codecov
   coderay (~> 1.1.0)
+  coffee-rails
   color-tools (~> 1.3.0)
   cucumber-rails (~> 1.4.2)
   daemons
@@ -819,6 +840,7 @@ DEPENDENCIES
   openproject-backlogs!
   openproject-costs!
   openproject-documents!
+  openproject-export_pdf_time_entries!
   openproject-github_integration!
   openproject-global_roles!
   openproject-help_link!
@@ -886,6 +908,7 @@ DEPENDENCIES
   timecop (~> 0.7.1)
   transactional_lock!
   tzinfo-data
+  uglifier
   unicorn
   warden (~> 1.2)
   warden-basic_auth (~> 0.2.1)
