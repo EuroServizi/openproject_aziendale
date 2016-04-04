@@ -92,6 +92,10 @@ function PathHelper() {
     timeEntryEditPath: function(timeEntryIdentifier) {
       return PathHelper.timeEntryPath(timeEntryIdentifier) + '/edit';
     },
+    //MODIFICATO PER STAMPARE BOLLA SU FOGLIO ORARIO
+    stampaBollaPath: function(timeEntryId, projectId) {
+      return PathHelper.projectPath(projectId) + "/time_entries/"+timeEntryId+"/stampa_bolla.pdf?template=bolletta_euro_servizi";
+    },
     workPackagesPath: function() {
       return '/work_packages';
     },
@@ -135,6 +139,7 @@ function PathHelper() {
       return path;
     },
 
+   
     // Experimental API
     apiAvailableColumnsPath: function() {
       return PathHelper.apiQueriesPath() + '/available_columns';

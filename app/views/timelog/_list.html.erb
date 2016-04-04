@@ -141,6 +141,9 @@ See doc/COPYRIGHT.rdoc for more details.
               <a ng-click="deleteTimeEntry(timeEntry.id)" href="" class="no-decoration-on-hover">
                 <icon-wrapper icon-name="delete" icon-title="{{I18n.t('js.button_delete')}}"></icon-wrapper>
               </a>
+              <a ng-href="{{PathHelper.stampaBollaPath(timeEntry.id,timeEntry.project.id)}}" class="no-decoration-on-hover">
+                <icon-wrapper icon-name="export" icon-title="Esporta"></icon-wrapper>
+              </a>
             </span>
           </td>
         </tr>
@@ -149,3 +152,4 @@ See doc/COPYRIGHT.rdoc for more details.
     <div class="generic-table--header-background"></div>
   </div>
 </div>
+
