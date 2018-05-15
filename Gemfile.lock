@@ -96,7 +96,7 @@ GIT
       rspec-mocks (>= 2.99, < 4.0)
 
 PATH
-  remote: ../plugins_openproject/openproject-export_pdf_time_entries
+  remote: ../plugins_openproject/plugin_openproject_stampe_bolle
   specs:
     openproject-export_pdf_time_entries (0.0.1)
       pdfkit
